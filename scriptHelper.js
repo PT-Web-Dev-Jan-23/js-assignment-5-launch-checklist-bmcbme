@@ -22,7 +22,7 @@ function validateInput(testInput) {
    if(testInput === '') {
     return 'Empty'
    } else if (isNaN(numberInput)) {
-    return " Not a Number"
+    return "Not a Number"
    } else if (isNaN(numberInput) === false){
     return "Is a Number"
    }
@@ -34,7 +34,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let fuel = document.getElementById('fuelLevel')
    let cargo = document.getElementById('cargoLevel')
 
-   if (validateInput(pilot) === 'Empty' || validateInput(copilot) === ' Empty' || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel) === "Empty") {
+   if (validateInput(pilot) === 'Empty' || validateInput(copilot) === 'Empty' || validateInput(fuelLevel) === 'Empty' || validateInput(cargoLevel) === "Empty") {
     alert('All Fields required')
    } else if  (validateInput(fuelLevel) === 'Not a number' || validateInput(cargoLevel) === 'Not a number') {
     alert ('Must enter numerical value for Fuel and Cargo Levels')
@@ -42,8 +42,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     alert('Cannot enter numerical value for Pilot and CoPilot')
    } else {
     list.style.visibilty = 'visible'
-    pilotStatus.innerHTML = ` Pilot ${pilot} is ready for launch`
-    copilotStatus.innerHTML = ` Co-pilot ${copilot} is ready for launch`
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
     let launchStatus = document.getElementById('launchStatus')
     if (fuelLevel < 10000 && cargoLevel <= 10000) {
         list.style.visibilty = 'visible'
