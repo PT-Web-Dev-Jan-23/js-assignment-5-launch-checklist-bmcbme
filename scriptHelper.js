@@ -1,5 +1,5 @@
 // Write your helper functions here!
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -43,26 +43,30 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    } else {
     list.style.visibilty = 'visible'
     pilotStatus.innerHTML = ` Pilot ${pilot} is ready for launch`
-    copilotStatus.innerHTML = ` Copilot ${copilot} is also ready for launch`
+    copilotStatus.innerHTML = ` Copilot ${copilot} is ready for launch`
     let launchStatus = document.getElementById('launchStatus')
     if (fuelLevel < 10000 && cargoLevel <= 10000) {
-        fuelLevel.innerHTML = "Not enough fuel for launch"
-        cargoLevel.innerHTML = "Cargo mass acceptable for launch"
-        launchStatus.innerHTML= "Shuttle not ready for launch"
+        list.style.visibilty = 'visible'
+        fuelLevel.innerHTML = "Fuel level too low for launch"
+        cargoLevel.innerHTML = "Cargo mass low enough for launch"
+        launchStatus.innerHTML= "Shuttle Not Ready for Launch"
         launchStatus.style.color = "#C7254E"
     } else if (fuelLevel >= 10000 && cargoLevel > 10000) {
-       fuelLevel.innerHTML = "Fuel level acceptable for launch"
+        list.style.visibilty = 'visible'
+       fuelLevel.innerHTML = "Fuel level high enough for launch"
        cargoLevel.innerHTML = "Cargo mass too high for launch"
-       launchStatus.innerHTML = "Shuttle not ready for launch"
+       launchStatus.innerHTML = "Shuttle Not Ready for Launch"
        launchStatus.style.color = "#C7254E"
     } else if (fuelLevel < 10000 && cargoLevel > 10000 ) {
-        fuelLevel.innerHTML= "Not enough fuel for launch"
+        list.style.visibilty = 'visible'
+        fuelLevel.innerHTML= "Fuel level too low for launch"
         cargoLevel.innerHTML = "Cargo mass too heavy for launch"
-        launchStatus.innerHTML = "Shuttle not ready for launch"
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch"
         launchStatus.style.color = "#C7254E"
     } else {
-        fuelLevel.innerHTML = "Fuel level acceptable for launch"
-        cargoLevel.innerHTML = "Cargo mass acceptable for launch"
+        list.style.visibilty = 'hidden'
+        fuelLevel.innerHTML = "Fuel level high enough for launch"
+        cargoLevel.innerHTML = "Cargo mass low enough for launch"
         launchStatus.innerHTML = "Shuttle is ready for launch"
         launchStatus.style.color = "#419F6A"
     }
